@@ -1,0 +1,4 @@
+pysndfx
+numpy
+torch
+librosa
