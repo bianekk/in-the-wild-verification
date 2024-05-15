@@ -162,3 +162,4 @@ cython_debug/
 data/
 *.wav
 *.csv
+**/.DS_Store

@@ -5,7 +5,7 @@ import os
 if os.path.basename(os.getcwd()) != 'in-the-wild-verification':
     os.chdir(os.path.dirname(os.getcwd()))
 
-def add_reverb(file: np.array, out_folder: str = None, name: str = None):
+def add_reverb(audio_array: np.array, out_folder: str = None, name: str = None):
     """Function to add reverb (echo) to a *.wav file
     Args:
         file -- numpy array 
@@ -17,10 +17,10 @@ def add_reverb(file: np.array, out_folder: str = None, name: str = None):
         pysndfx.AudioEffectsChain()
         .delay()
     )   
-    y = fx(file)
+    y = fx(audio_array)
     if out_folder:
         path = os.path.join(out_folder, name)
-        fx(file, path)
+        fx(audio_array, path)
     
     return y
 
