@@ -2,3 +2,5 @@ pysndfx
 numpy
 torch
 librosa
+pydub
+jupyterlab
