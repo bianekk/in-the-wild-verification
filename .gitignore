@@ -160,6 +160,7 @@ cython_debug/
 #.idea/
 
 data/
+output_reverb/
 *.wav
 *.csv
 **/.DS_Store
