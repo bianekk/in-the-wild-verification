@@ -1,6 +1,8 @@
 pysndfx
 numpy
+scipy
 torch
 librosa
 pydub
 jupyterlab
+tqdm
