@@ -1,5 +1,6 @@
 pysndfx
 numpy
+scipy
 torch
 librosa
 pydub
