@@ -26,6 +26,7 @@ import numpy as np
 import pysndfx
 import librosa
 from tqdm import tqdm
+import soundfile as sf
 
 parser = argparse.ArgumentParser()
 parser.add_argument("--data_dir", default='data/')
@@ -38,11 +39,11 @@ for path in (args.data_dir, args.output_dir):
     assert os.path.isdir(path), f"Invalid path: {path}"
 
 
-def add_reverb(audio_array: np.array, out_folder: str = None):
+def add_reverb(audio_array: np.array, out_file: str = None):
     """Function to add reverb (echo) to a *.wav file
     Args:
         file -- numpy array 
-        out_folder -- if specified, files will be saved there
+        out_file -- if specified, files will be saved there
     Returns the processed file
     """
     fx = (
@@ -50,8 +51,10 @@ def add_reverb(audio_array: np.array, out_folder: str = None):
         .delay()
     )   
     y = fx(audio_array)
-    if out_folder:
-        fx(audio_array, out_folder)
+    if out_file:
+        y = librosa.resample(y, orig_sr=44100, target_sr=16000)
+        # fx(audio_array, out_file)
+        sf.write(out_file, y, 16000)
     
     return y
 
@@ -75,7 +78,7 @@ def process_profile(profile_name: str):
             orig_sr=sr, 
             target_sr=44100) # resampling due to some issues along the way
         
-        add_reverb(sample_file, out_folder=os.path.join(args.output_dir, profile_name, fname))
+        add_reverb(sample_file, out_file=os.path.join(args.output_dir, profile_name, fname))
 
 
 if __name__ == '__main__':

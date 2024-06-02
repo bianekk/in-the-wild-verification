@@ -40,7 +40,7 @@ def train(model_path):
     embedder_net.train()
     iteration = 0
     print("### Training ###")
-    for e in range(hp.train.epochs):
+    for e in range(hp.train.restore_epoch, hp.train.epochs):
         total_loss = 0
         for batch_id, mel_db_batch in enumerate(train_loader):
             mel_db_batch = mel_db_batch.to(device)

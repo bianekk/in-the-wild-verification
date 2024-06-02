@@ -38,7 +38,6 @@ class SpeakerDataset(Dataset):
         wav_files = glob.glob(speaker+'/*.wav')
         shuffle(wav_files)
         wav_files = wav_files[0:self.utterance_number]
-        
         mel_dbs = []
         for f in wav_files:
             _, mel_db, _ = mfccs_and_spec(f, wav_process = True)

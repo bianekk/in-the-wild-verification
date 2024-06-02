@@ -11,7 +11,7 @@ import torch
 import torch.autograd as grad
 import torch.nn.functional as F
 
-from Speaker_Verification.hparam import hparam as hp
+from speech_model.hparam import hparam as hp
 
 def get_centroids_prior(embeddings):
     centroids = []
