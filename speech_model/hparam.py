@@ -46,7 +46,7 @@ class Dotdict(dict):
 
 class Hparam(Dotdict):
 
-    def __init__(self, file='Speaker_Verification/config/config.yaml'):
+    def __init__(self, file='speech_model/config/config.yaml'):
         super(Dotdict, self).__init__()
         hp_dict = load_hparam(file)
         hp_dotdict = Dotdict(hp_dict)
