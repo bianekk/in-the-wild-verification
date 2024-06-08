@@ -34,7 +34,7 @@ train:
     checkpoint_interval: 30 #Save model after x speaker epochs
     checkpoint_dir: './speech_id_checkpoint'
     restore: !!bool "True" #Resume training from previous model path
-    restore_epoch: 180 # epoch from which to restore
+    restore_epoch: 210 # epoch from which to restore
 ---
 val:
     N : 4 #Number of speakers in batch

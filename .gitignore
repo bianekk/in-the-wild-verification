@@ -160,9 +160,14 @@ cython_debug/
 #.idea/
 
 data/
+test_users/
+embeddings_180_noise/
+embeddings_180_denoise/
+denoised/
 output_reverb/
 *.wav
 *.csv
 **/.DS_Store
 *.pth
 *.7z
+*.png
