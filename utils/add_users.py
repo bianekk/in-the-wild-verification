@@ -69,8 +69,8 @@ if __name__ == "__main__":
         for user in tqdm(test_users):
             if os.path.isdir(os.path.join(SOURCE_DIR, sub, user)):
                 # first denoising
-                denoise_user(os.path.join(sub_root, user), os.path.join(DENOISE_DIR, sub, user))
+                #denoise_user(os.path.join(sub_root, user), os.path.join(DENOISE_DIR, sub, user))
                 # embedding later
                 # note: if you do not want to denoise, comment the previous line and replace the below line with this
-                # export_embeddings(model, os.path.join(SOURCE_DIR, sub, user), os.path.join(OUT_DIR, sub, user))
-                export_embeddings(model, os.path.join(DENOISE_DIR, sub, user), os.path.join(OUT_DIR, sub, user))
+                export_embeddings(model, os.path.join(SOURCE_DIR, sub, user), os.path.join(OUT_DIR, sub, user))
+                #export_embeddings(model, os.path.join(DENOISE_DIR, sub, user), os.path.join(OUT_DIR, sub, user))
