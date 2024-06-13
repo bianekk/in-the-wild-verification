@@ -53,12 +53,12 @@ if __name__ == "__main__":
     Script for embedding test users
     Embeddings for each user are of shape [256, N] where N is the number of their samples 
     """
-    OUT_DIR = "test_users_embeddings"
-    SOURCE_DIR = "test_users"
+    OUT_DIR = "nasze_emb"
+    SOURCE_DIR = "nasze_testy"
     DENOISE_DIR = "denoised"
     os.makedirs(OUT_DIR, exist_ok=True)
     os.makedirs(DENOISE_DIR, exist_ok=True)
-    subfolders = ['clean', 'echo', 'language', 'noise']
+    subfolders = ['clean', 'echos', 'noise']
 
     model = load_model()
     for sub in subfolders:
