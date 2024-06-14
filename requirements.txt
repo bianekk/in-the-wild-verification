@@ -1,5 +1,6 @@
 pysndfx
 numpy
+pandas
 scipy
 torch
 librosa

@@ -39,8 +39,11 @@ def export_embeddings(model, denoise_folder: str, output_folder: str):
         if user_file.endswith('wav'):
             try:
                 embedding = compute_embedding(model, os.path.join(denoise_folder, user_file))
+                print("SHAPE:")
+                print(embedding.shape)
                 user_embeddings.append(embedding)
             except EOFError: # some files are corrupted
+                print("except")
                 continue
     user_embeddings = torch.stack(user_embeddings)
     os.makedirs(output_folder, exist_ok=True)
@@ -54,10 +57,10 @@ if __name__ == "__main__":
     Embeddings for each user are of shape [256, N] where N is the number of their samples 
     """
     OUT_DIR = "nasze_emb"
-    SOURCE_DIR = "nasze_testy"
-    DENOISE_DIR = "denoised"
+    SOURCE_DIR = "nasze_nagrania_wersje"
+    #DENOISE_DIR = "denoised"
     os.makedirs(OUT_DIR, exist_ok=True)
-    os.makedirs(DENOISE_DIR, exist_ok=True)
+    #os.makedirs(DENOISE_DIR, exist_ok=True)
     subfolders = ['clean', 'echos', 'noise']
 
     model = load_model()
@@ -69,7 +72,7 @@ if __name__ == "__main__":
         for user in tqdm(test_users):
             if os.path.isdir(os.path.join(SOURCE_DIR, sub, user)):
                 # first denoising
-                #denoise_user(os.path.join(sub_root, user), os.path.join(DENOISE_DIR, sub, user))
+                # denoise_user(os.path.join(sub_root, user), os.path.join(DENOISE_DIR, sub, user))
                 # embedding later
                 # note: if you do not want to denoise, comment the previous line and replace the below line with this
                 export_embeddings(model, os.path.join(SOURCE_DIR, sub, user), os.path.join(OUT_DIR, sub, user))

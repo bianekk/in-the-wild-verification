@@ -16,10 +16,10 @@ Args:
     output_dir: path to the directory to put output files in
     --noise_scale: the target ratio between the mean of noise absolute value and the mean
         of sound absolute value,
-        default: 0.5
+        default: 0.8
 
 Example:
-    python add_gaussian_noise.py split_data/train output/ --noise_scale 0.5
+    python add_gaussian_noise.py split_data/train output/ --noise_scale 0.8
 
 Notes:
     each provided directory as an argument must exist
@@ -38,7 +38,7 @@ from tqdm import tqdm
 parser = argparse.ArgumentParser()
 parser.add_argument("data_dir")
 parser.add_argument("output_dir")
-parser.add_argument("--noise_scale", default=0.5)
+parser.add_argument("--noise_scale", default=0.8)
 
 args = parser.parse_args()
 
