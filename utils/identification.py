@@ -28,7 +28,7 @@ def nearest_tensor(target: torch.Tensor, embeddings: torch.Tensor, thresh: float
     if max_similarity_value > thresh:
         return closest_user_index, max_similarity_value
     else:
-        print(f"No matching user found")
+        #print(f"No matching user found")
         return 0, 0
 
     
